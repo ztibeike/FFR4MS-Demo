@@ -14,7 +14,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8030/eureka/
+      defaultZone: http://eureka-registry:8030/eureka/
     registry-fetch-interval-seconds: 5
   instance:
     prefer-ip-address: true
