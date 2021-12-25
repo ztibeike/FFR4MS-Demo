@@ -1,0 +1,72 @@
+version: '3'
+services:
+  eureka-registry:
+    build: eureka-registry
+    image: ffr4ms-demo-eureka-registry
+    restart: always
+    ports:
+      - "8030:8030"
+    networks:
+      - my-network
+
+  service-A-1:
+    build: service-a
+    image: ffr4ms-demo-service-a
+    restart: always
+    ports:
+      - "8060:8060"
+    networks:
+      - my-network
+
+  service-A-2:
+    build: service-a
+    image: ffr4ms-demo-service-a
+    restart: always
+    ports:
+      - "8061:8060"
+    networks:
+      - my-network
+
+  service-B-1:
+    build: service-b
+    image: ffr4ms-demo-service-b
+    restart: always
+    ports:
+      - "8070:8070"
+    networks:
+      - my-network
+
+  service-B-2:
+    build: service-b
+    image: ffr4ms-demo-service-b
+    restart: always
+    ports:
+      - "8071:8070"
+    networks:
+      - my-network
+
+  zuul-gateway-a:
+    build:
+      context: zuul-gateway
+      dockerfile: Dockerfile-a
+    image: ffr4ms-demo-zuul-gateway-a
+    restart: always
+    ports:
+      - "8040:8040"
+    networks:
+      - my-network
+
+  zuul-gateway-b:
+    build:
+      context: zuul-gateway
+      dockerfile: Dockerfile-b
+    image: ffr4ms-demo-zuul-gateway-b
+    restart: always
+    ports:
+      - "8041:8040"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
