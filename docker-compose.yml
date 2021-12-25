@@ -17,6 +17,8 @@ services:
       - "8060:8060"
     networks:
       - my-network
+    depends_on:
+      - eureka-registry
 
   service-A-2:
     build: service-a
@@ -26,6 +28,8 @@ services:
       - "8061:8060"
     networks:
       - my-network
+    depends_on:
+      - eureka-registry
 
   service-B-1:
     build: service-b
@@ -35,6 +39,8 @@ services:
       - "8070:8070"
     networks:
       - my-network
+    depends_on:
+      - eureka-registry
 
   service-B-2:
     build: service-b
@@ -44,6 +50,8 @@ services:
       - "8071:8070"
     networks:
       - my-network
+    depends_on:
+      - eureka-registry
 
   zuul-gateway-a:
     build:
@@ -55,6 +63,8 @@ services:
       - "8040:8040"
     networks:
       - my-network
+    depends_on:
+      - eureka-registry
 
   zuul-gateway-b:
     build:
@@ -63,9 +73,11 @@ services:
     image: ffr4ms-demo-zuul-gateway-b
     restart: always
     ports:
-      - "8041:8040"
+      - "8050:8050"
     networks:
       - my-network
+    depends_on:
+      - eureka-registry
 
 networks:
   my-network:
