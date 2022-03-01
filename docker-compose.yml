@@ -20,16 +20,16 @@ services:
     depends_on:
       - eureka-registry
 
-#  service-A-2:
-#    build: service-a
-#    image: ffr4ms-demo-service-a
-#    restart: always
-#    ports:
-#      - "8061:8060"
-#    networks:
-#      - my-network
-#    depends_on:
-#      - eureka-registry
+  service-A-2:
+    build: service-a
+    image: ffr4ms-demo-service-a
+    restart: always
+    ports:
+      - "8061:8060"
+    networks:
+      - my-network
+    depends_on:
+      - eureka-registry
 
   service-B-1:
     build: service-b
@@ -42,16 +42,16 @@ services:
     depends_on:
       - eureka-registry
 
-#  service-B-2:
-#    build: service-b
-#    image: ffr4ms-demo-service-b
-#    restart: always
-#    ports:
-#      - "8071:8070"
-#    networks:
-#      - my-network
-#    depends_on:
-#      - eureka-registry
+  service-B-2:
+    build: service-b
+    image: ffr4ms-demo-service-b
+    restart: always
+    ports:
+      - "8071:8070"
+    networks:
+      - my-network
+    depends_on:
+      - eureka-registry
 
   zuul-gateway-a:
     build:
