@@ -55,7 +55,8 @@ public class CustomLoadbalancerRule extends RandomRule {
                 server = randomServer(lb.getReachableServers(), serviceName);
             }
         }
-        /*if (server == null) {
+        /*
+        if (server == null) {
             server = super.choose(lb, key);
         }*/
         if (server != null) {
