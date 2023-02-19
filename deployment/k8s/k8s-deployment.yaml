@@ -11,6 +11,8 @@ spec:
       labels:
         app: eureka-registry
     spec:
+      imagePullSecrets:
+        - name: regcred    
       containers:
       - name: eureka-registry
         image: registry.cn-beijing.aliyuncs.com/ffr4ms-demo/eureka-registry:0.0.1
@@ -36,6 +38,8 @@ spec:
       labels:
         app: service-a
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
       - name: service-a
         image: registry.cn-beijing.aliyuncs.com/ffr4ms-demo/service-a:0.0.1
@@ -61,6 +65,8 @@ spec:
       labels:
         app: service-b
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
       - name: service-b
         image: registry.cn-beijing.aliyuncs.com/ffr4ms-demo/service-b:0.0.1
@@ -86,6 +92,8 @@ spec:
       labels:
         app: zuul-gateway-a
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
       - name: zuul-gateway-a
         image: registry.cn-beijing.aliyuncs.com/ffr4ms-demo/zuul-gateway-a:0.0.1
@@ -112,6 +120,8 @@ spec:
       labels:
         app: zuul-gateway-b
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
       - name: zuul-gateway-b
         image: registry.cn-beijing.aliyuncs.com/ffr4ms-demo/zuul-gateway-b
