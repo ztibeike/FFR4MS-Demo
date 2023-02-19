@@ -1,7 +1,7 @@
 version: '3'
 services:
   eureka-registry:
-    build: eureka-registry
+    build: ../../eureka-registry
     image: ffr4ms-demo-eureka-registry
     restart: always
     ports:
@@ -10,7 +10,7 @@ services:
       - my-network
 
   service-A-1:
-    build: service-a
+    build: ../../service-a
     image: ffr4ms-demo-service-a
     restart: always
     ports:
@@ -21,7 +21,7 @@ services:
       - eureka-registry
 
   service-A-2:
-    build: service-a
+    build: ../../service-a
     image: ffr4ms-demo-service-a
     restart: always
     ports:
@@ -32,7 +32,7 @@ services:
       - eureka-registry
 
   service-B-1:
-    build: service-b
+    build: ../../service-b
     image: ffr4ms-demo-service-b
     restart: always
     ports:
@@ -43,7 +43,7 @@ services:
       - eureka-registry
 
   service-B-2:
-    build: service-b
+    build: ../../service-b
     image: ffr4ms-demo-service-b
     restart: always
     ports:
@@ -55,8 +55,8 @@ services:
 
   zuul-gateway-a:
     build:
-      context: zuul-gateway
-      dockerfile: Dockerfile-a
+      context: ../../zuul-gateway
+      dockerfile: ../../zuul-gateway/Dockerfile-a
     image: ffr4ms-demo-zuul-gateway-a
     restart: always
     ports:
@@ -68,8 +68,8 @@ services:
 
   zuul-gateway-b:
     build:
-      context: zuul-gateway
-      dockerfile: Dockerfile-b
+      context: ../../zuul-gateway
+      dockerfile: ../../zuul-gateway/Dockerfile-b
     image: ffr4ms-demo-zuul-gateway-b
     restart: always
     ports:
