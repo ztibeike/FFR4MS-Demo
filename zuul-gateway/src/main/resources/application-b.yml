@@ -40,5 +40,5 @@ ribbon:
   ReadTimeout: 600000
 
 info:
-  getway: service-a
+  getway: service-b
   port: ${server.port}
