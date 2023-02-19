@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-repo="registry.cn-beijing.aliyuncs.com/ffr4ms-demo"
+repo="$1"
 
 echo
 echo "Start pushing image"
