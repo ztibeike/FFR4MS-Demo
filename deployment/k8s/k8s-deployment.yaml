@@ -1,0 +1,124 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-registry
+spec:
+  selector:
+    matchLabels:
+      app: eureka-registry
+  template:
+    metadata:
+      labels:
+        app: eureka-registry
+    spec:
+      containers:
+      - name: eureka-registry
+        image: registry.cn-beijing.aliyuncs.com/ffr4ms-demo/eureka-registry:0.0.1
+        ports:
+          - containerPort: 8030
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "300m"
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-a
+spec:
+  selector:
+    matchLabels:
+      app: service-a
+  template:
+    metadata:
+      labels:
+        app: service-a
+    spec:
+      containers:
+      - name: service-a
+        image: registry.cn-beijing.aliyuncs.com/ffr4ms-demo/service-a:0.0.1
+        ports:
+          - containerPort: 8060
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "300m"
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-b
+spec:
+  selector:
+    matchLabels:
+      app: service-b
+  template:
+    metadata:
+      labels:
+        app: service-b
+    spec:
+      containers:
+      - name: service-b
+        image: registry.cn-beijing.aliyuncs.com/ffr4ms-demo/service-b:0.0.1
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8070
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "300m"
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zuul-gateway-a
+spec:
+  selector:
+    matchLabels:
+      app: zuul-gateway-a
+  template:
+    metadata:
+      labels:
+        app: zuul-gateway-a
+    spec:
+      containers:
+      - name: zuul-gateway-a
+        image: registry.cn-beijing.aliyuncs.com/ffr4ms-demo/zuul-gateway-a:0.0.1
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8040
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "300m"
+---
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zuul-gateway-b
+spec:
+  selector:
+    matchLabels:
+      app: zuul-gateway-b
+  template:
+    metadata:
+      labels:
+        app: zuul-gateway-b
+    spec:
+      containers:
+      - name: zuul-gateway-b
+        image: registry.cn-beijing.aliyuncs.com/ffr4ms-demo/zuul-gateway-b
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8050
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "300m"
