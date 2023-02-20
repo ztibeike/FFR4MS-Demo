@@ -12,7 +12,7 @@ spec:
         app: eureka-registry
     spec:
       imagePullSecrets:
-        - name: regcred    
+        - name: regcred
       containers:
       - name: eureka-registry
         image: registry.cn-beijing.aliyuncs.com/ffr4ms-demo/eureka-registry:0.0.1
