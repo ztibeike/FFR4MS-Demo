@@ -16,3 +16,7 @@ eureka:
 info:
   leaf: 1
   port: ${server.port}
+
+logging:
+  level:
+    io.ztbeike.ffr4ms: debug

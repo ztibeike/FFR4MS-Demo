@@ -41,6 +41,6 @@ ribbon:
   ConnectionTimeout: 10000
   ReadTimeout: 600000
 
-info:
-  getway: service-b
-  port: ${server.port}
+logging:
+  level:
+    io.ztbeike.ffr4ms: debug

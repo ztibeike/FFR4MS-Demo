@@ -5,6 +5,7 @@ spring:
   application:
     name: eureka-registry
 
+
 eureka:
   instance:
     hostname: localhost
@@ -15,3 +16,7 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
     enable-self-preservation: false
+
+logging:
+  level:
+    io.ztbeike.ffr4ms: debug

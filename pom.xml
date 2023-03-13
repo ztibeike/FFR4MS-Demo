@@ -12,7 +12,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.zt</groupId>
+    <groupId>io.ztbeike.ffr4ms</groupId>
     <artifactId>ffr4ms-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -30,6 +30,7 @@
         <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <ffr4ms.version>1.0-SNAPSHOT</ffr4ms.version>
     </properties>
 
     <dependencyManagement>
