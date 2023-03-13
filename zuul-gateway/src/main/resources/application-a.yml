@@ -19,6 +19,8 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    metadata-map:
+      gateway: service-a
 
 zuul:
   RibbonRoutingFilter:
