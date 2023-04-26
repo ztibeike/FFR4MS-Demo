@@ -12,10 +12,8 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
-
-info:
-  leaf: 1
-  port: ${server.port}
+    metadata-map:
+      leaf: true
 
 logging:
   level:
