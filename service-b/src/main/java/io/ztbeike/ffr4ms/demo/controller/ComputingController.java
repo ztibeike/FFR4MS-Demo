@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
+
 @RestController
 @RequestMapping("/serviceB")
 public class ComputingController {
@@ -13,6 +15,12 @@ public class ComputingController {
     public String compute(@RequestBody String value) {
         Integer val = Integer.parseInt(value);
         int result = val * val;
+        Random random = new Random();
+        try {
+            Thread.sleep(500 + random.nextInt(1000)); // 模拟工作时间
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return Integer.toString(result);
     }
 }

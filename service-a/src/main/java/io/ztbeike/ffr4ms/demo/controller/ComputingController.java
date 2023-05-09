@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Random;
+
 @RestController
 @RequestMapping("/serviceA")
 public class ComputingController {
@@ -18,11 +20,14 @@ public class ComputingController {
 
     @GetMapping("/compute/{value}")
     public String compute(@PathVariable("value") String value) {
+        Random random = new Random();
         try {
             Integer val = Integer.parseInt(value);
+            Thread.sleep(300 + random.nextInt(1000)); // 模拟工作时间
             String result = restTemplate.postForObject(SERVICE_B_URL + "/compute", val, String.class);
+            Thread.sleep(400 + random.nextInt(1000)); // 模拟工作时间
             return value + "的平方为: " + result;
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException | InterruptedException e) {
             return "输入的值" + value + "不是整数";
         }
     }
