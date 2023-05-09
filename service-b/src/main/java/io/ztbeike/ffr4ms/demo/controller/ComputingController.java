@@ -17,7 +17,7 @@ public class ComputingController {
         int result = val * val;
         Random random = new Random();
         try {
-            Thread.sleep(500 + random.nextInt(1000)); // 模拟工作时间
+            Thread.sleep(200 + random.nextInt(500)); // 模拟工作时间
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

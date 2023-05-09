@@ -23,9 +23,9 @@ public class ComputingController {
         Random random = new Random();
         try {
             Integer val = Integer.parseInt(value);
-            Thread.sleep(300 + random.nextInt(1000)); // 模拟工作时间
+            Thread.sleep(200 + random.nextInt(300)); // 模拟工作时间
             String result = restTemplate.postForObject(SERVICE_B_URL + "/compute", val, String.class);
-            Thread.sleep(400 + random.nextInt(1000)); // 模拟工作时间
+            Thread.sleep(200 + random.nextInt(400)); // 模拟工作时间
             return value + "的平方为: " + result;
         } catch (NumberFormatException | InterruptedException e) {
             return "输入的值" + value + "不是整数";
