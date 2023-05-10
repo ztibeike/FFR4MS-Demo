@@ -28,7 +28,7 @@ zuul:
       disable: true
   routes:
     zuul:
-      path: /zuulApi/**
+      path: /frecovery/**
       service-id: zuul-gateway
 
     basic:
